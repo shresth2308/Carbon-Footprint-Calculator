@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Footprint Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  
+  </style>
+
+</head>
+<body>
+  <div class="navbar">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+   <!-- Main Content -->
+   <div class="container">
+    <h1>Make Future for Your Future</h1>
+    <h3>Calculate your carbon emissions and offset your impact</h3>
+    <p>
+      This carbon calculator is provided free to use. Show you care for the environment by offsetting your carbon footprint. Support projects that tackle climate change and aid communities worldwide. After calculating, click the 'Offset' button. It takes just a few clicks and provides you with a personalized certificate!
+    </p>
+    <div class="video-container">
+      <h2>Learn More About Carbon Footprints</h2>
+    </div>
+    <iframe src="https://www.youtube.com/embed/8q7_aV8eLUE" height="280px" width="500px"  ></iframe>
+      </div>
+    <!-- Language Selector -->
+    <label for="Langs">Select Language:</label>
+    <select id="Langs">
+      <option value="English">English</option>
+      <option value="Hindi">Hindi</option>
+      <option value="Gujrati">Gujrati</option>
+      <option value="Bhojpuri">Bhojpuri</option>
+      <option value="Kannada">Kannada</option>
+      <option value = "Tamil">Tamil</OPtion>
+       <option value="Kashmiri">Kashmiri</option> 
+    </select>
+
+  <div class="container">
+    <h1>Carbon Footprint Calculator</h1>
+    <div class="calculator">
+      <button id="customer-name">Enter Customer Name</button>
+      <button id="phone-number">Enter Phone Number</button>
+      <div id="product-container"></div>
+      <button id="add-product">Add Product</button>
+      <button id="calculate" disabled>Calculate Total</button>
+      <button id="summarize" disabled>Show Summary</button>
+      <h2>Total: <span id="total">0.00</span></h2>
+    </div>
+
+    <div id="summary" style="display: none;"></div>
+  </div>
+
+  <script>
+    const productContainer = document.getElementById('product-container');
+    const addProductBtn = document.getElementById('add-product');
+    const calculateBtn = document.getElementById('calculate');
+    const summarizeBtn = document.getElementById('summarize');
+    const totalDisplay = document.getElementById('total');
+    const summaryDiv = document.getElementById('summary');
+
+    let customerName = '';
+    let phoneNumber = '';
+
+    function createProductFields() {
+      const productDiv = document.createElement('div');
+      productDiv.className = 'product';
+
+      productDiv.innerHTML = `
+        <label>Product Name:</label>
+        <input type="text" class="product-name" placeholder="Enter product name" required>
+
+        <label>Product Price:</label>
+        <input type="number" class="product-price" placeholder="Enter product price" min="0" required>
+
+        <label>Quantity:</label>
+        <input type="number" class="product-quantity" placeholder="Enter quantity" min="0" required>
+
+        <label>Product Type:</label>
+        <select class="product-type">
+          <option value="home">Home</option>
+          <option value="electrical">Electrical</option>
+          <option value="mockery">Mockery</option>
+        </select>
+      `;
+
+      productContainer.appendChild(productDiv);
+
+      calculateBtn.disabled = false;
+      summarizeBtn.disabled = false;
+    }
+
+    createProductFields();
+
+    addProductBtn.addEventListener('click', createProductFields);
+
+    document.getElementById('customer-name').addEventListener('click', () => {
+      const name = prompt('Enter Customer Name:');
+      if (name) {
+        customerName = name.trim();
+        alert(`Customer Name saved: ${customerName}`);
+      } else {
+        alert('Customer Name cannot be empty!');
+      }
+    });
+
+    document.getElementById('phone-number').addEventListener('click', () => {
+      const phone = prompt('Enter Phone Number:');
+
+      if (phone && (phone.trim())) {
+        phoneNumber = phone.trim();
+        alert(`Phone Number saved: ${phoneNumber}`);
+      } else {
+        alert('Invalid Phone Number!');
+      }
+    });
+
+    calculateBtn.addEventListener('click', () => {
+      const productPrices = document.querySelectorAll('.product-price');
+      const productQuantities = document.querySelectorAll('.product-quantity');
+      let total = 0;
+
+      productPrices.forEach((price, index) => {
+        const quantity = parseInt(productQuantities[index].value) || 0;
+        const priceValue = parseFloat(price.value) || 0;
+        total += quantity * priceValue;
+      });
+
+      totalDisplay.textContent = total.toFixed(2);
+    });
+
+    summarizeBtn.addEventListener('click', () => {
+  const productNames = document.querySelectorAll('.product-name');
+  const productPrices = document.querySelectorAll('.product-price');
+  const productQuantities = document.querySelectorAll('.product-quantity');
+  const productTypes = document.querySelectorAll('.product-type');
+  let total = 0;
+  let summaryHTML = `<h3>Bill Summary</h3>`;
+
+  if (!customerName || !phoneNumber) {
+    alert('Please enter Customer Name and Phone Number first!');
+    return;
+  }
+
+  summaryHTML += `<p><strong>Customer Name:</strong> ${customerName}</p>`;
+  summaryHTML += `<p><strong>Phone Number:</strong> ${phoneNumber}</p>`;
+  summaryHTML += `<ul>`;
+
+  productNames.forEach((name, index) => {
+    const productName = name.value.trim();
+    const quantity = parseInt(productQuantities[index].value) || 0;
+    const price = parseFloat(productPrices[index].value) || 0;
+    const type = productTypes[index].value;
+
+    if (quantity > 0) {
+      summaryHTML += `<li><b>${productName}</b> (${type}): ${quantity} x ₹${price.toFixed(2)} = ₹${(quantity * price).toFixed(2)}</li>`;
+      total += quantity * price;
+    }
+  });
+
+  summaryHTML += `</ul><h3>Total: ₹${total.toFixed(2)}</h3>`;
+  summaryDiv.innerHTML = summaryHTML;
+  summaryDiv.style.display = 'block'; // Show the summary
+});
+
+  </script>
+  <footer>
+    <p>Thank you for donating we will ensure that your funds will go on right time right place to right people.</p>
+    <p> Organization and website is developed by Jaypee Trailbrazers</p>
+    <p>&copy; 2025 Jaypee Trailbrazers. All rights reserved.</p>
+</footer>
+</body>
+</html>

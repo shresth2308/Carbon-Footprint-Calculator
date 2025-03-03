@@ -1,0 +1,313 @@
+#summary {
+    background-color: #fff; /* White background */
+    padding: 20px;          /* Add padding for better spacing */
+    border-radius: 10px;    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for better visibility */
+    max-width: 600px;       /* Optional: Max width */
+    margin-top: 20px;       /* Optional: Space between elements */
+    color: #333;            /* Dark text for contrast */
+  }
+  
+  footer {
+      background: linear-gradient(45deg, #0d6220, #86ff45);
+      color: #000000;
+      text-align: center;
+      padding: 20px 10px;
+      position: relative;
+      overflow: hidden;
+      display: flex; /* Use flexbox */
+      justify-content: center; /* Center content horizontally */
+      align-items: center; /* Center content vertically */
+      flex-direction: column; /* Ensure that the text stacks vertically */
+  }
+  
+  footer p {
+      margin: 10px 0;
+      opacity: 0;
+      animation: fadeIn 4.5s ease-in-out forwards;
+  }
+  
+  footer p:nth-child(1) { animation-delay: 0.2s; }
+  footer p:nth-child(2) { animation-delay: 0.4s; }
+  footer p:nth-child(3) { animation-delay: 0.6s; }
+  footer p:nth-child(4) { animation-delay: 0.8s; }
+  footer p:nth-child(5) { animation-delay: 1s; }
+  footer p:nth-child(6) { animation-delay: 1.2s; }
+  
+  footer p:hover {
+      color: #f50000;
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+  }
+  
+          @keyframes fadeIn {
+              from {
+                  opacity: 0;
+                  transform: translateY(10px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+          }
+  
+          .footer-decoration {
+              position: absolute;
+              top: -50px;
+              left: -50px;
+              width: 200px;
+              height: 200px;
+              background: rgba(255, 255, 255, 0.1);
+              border-radius: 50%;
+              animation: moveDecoration 8s linear infinite;
+          }
+  
+          @keyframes moveDecoration {
+              0% {
+                  transform: translate(0, 0);
+              }
+              50% {
+                  transform: translate(30px, 30px);
+              }
+              100% {
+                  transform: translate(0, 0);
+              }
+          }
+      /* General Styles */
+      /* General Styles */
+      body {
+        font-family: 'Roboto', sans-serif; /* Use Google Font for body text */
+        background-color: #d1f2d3; /* Soft, light green background */
+        margin: 0;
+        padding: 0;
+        background-image: url('rain_India.jpg'); /* Nature-inspired background image */
+        background-size: cover;
+        
+        backdrop-filter: blur(8px);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        color: #333;
+      }
+  
+      /* Navbar Styles */
+      .navbar {
+        background-color: #4CAF50; /* Lush green for navbar */
+        overflow: hidden;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        animation: slideIn 0.5s ease-out; /* Slide-in animation for navbar */
+      }
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  
+      .navbar a {
+        float: left;
+        display: block;
+        color: #fff;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1px; /* Add space between navbar letters */
+        transition: background-color 0.3s ease;
+      }
+  
+      .navbar a:hover {
+        background-color: #81c784; /* Lighter green hover effect */
+        color: #3e5c34; /* Dark green text on hover */
+      }
+  
+      .navbar a.active {
+        background-color: #388e3c; /* Dark green for active link */
+        color: white;
+      }
+  
+  
+      /* Main Content Styles */
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+      }
+  
+      h1, h2 {
+        color: #9dff00; /* Earthy green for headings */
+        text-align: center;
+        font-family: 'Georgia', sans-serif; /* Modern, bold, nature-inspired font for headings */
+        font-size: 40px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Strong text shadow */
+        letter-spacing: 2px; /* Increase letter spacing for emphasis */
+        animation: fadeInUp 1s ease-out;
+      }
+  
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  
+      h2 {
+          font-size: 30px;
+      }
+  
+      h3 {
+        text-decoration: underline dotted;
+        font-style: italic;
+        font-family: 'dancing script';
+        font-size: 30px;
+        font-weight: 300;
+        color: #ffb300;
+        text-align: center;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+  
+      p {
+        font-family: 'playwrite';
+        text-align: center;
+        color: #fff700;
+        max-width: 80%;
+        font-size: 18px;
+        line-height: 1.6;
+        letter-spacing: 0.5px;
+      }
+  
+      /* Video Section Styles */
+      .video-container {
+        margin: 20px 0;
+        text-align: center;
+      }
+  
+      .video-container video {
+        width: 100%;
+        max-width: 650px;
+        border: 3px solid #388e3c;
+        border-radius: 10px;
+        animation: fadeIn 1s ease-out;
+      }
+  
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        } 
+        to {
+          opacity: 1;
+        }
+      }
+  
+      /* Calculator Section */
+      .calculator {
+        background: rgba(76, 175, 80, 0.85); /* Semi-transparent vibrant green */
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        width: 450px;
+        margin-top: 20px;
+        opacity: 0;
+        animation: fadeInCalculator 1s ease-out forwards;
+      }
+  
+      @keyframes fadeInCalculator {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+  
+      .product {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #81c784; /* Soft green border */
+        border-radius: 8px;
+        background-color: #a5d6a7; /* Light green for products */
+        transition: transform 0.3s ease-in-out;
+      }
+  
+      .product:hover {
+        transform: scale(1.05); /* Slight zoom effect on hover */
+      }
+  
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #003a1e;
+        font-size: 16px;
+        text-align: center;
+      }
+  
+      input[type="text"], input[type="number"], select {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 12px;
+        border: 1px solid #a5d6a7;
+        border-radius: 6px;
+        box-sizing: border-box;
+        background-color: #fff;
+        color: #388e3c;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+      }
+  
+      input:focus, select:focus {
+        outline: none;
+        border-color: #4CAF50; /* Darker green for focus */
+      }
+  
+      button {
+        background-color: #4CAF50; /* Lush green button */
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin: 8px;
+        width: 100%;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 1px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+  
+      button:hover {
+        background-color: #388e3c; /* Dark green hover effect */
+        color: #fff;
+      }
+  
+      button[disabled] {
+        background-color: #a5d6a7;
+        color: #fff;
+        cursor: not-allowed;
+      }
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #d1f2d3;
+        margin: 0;
+        padding: 0;
+        background-image: url('rain_India.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        color: #b0e57c; /* Light yellow-greenish text color */
+      }
+      ul{
+          color:#fff;
+      }  
